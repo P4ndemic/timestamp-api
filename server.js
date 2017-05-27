@@ -5,10 +5,10 @@ var http = require("http")
 
 // port ajusted to environment
 var port = process.env.PORT
-console.log(url);
 
-app.('/', function (req, res) {
-  res.send(req.url)
+
+app.get('/', function (req, res) {
+  res.send(url)
 })
 
 app.listen(port, function () {
