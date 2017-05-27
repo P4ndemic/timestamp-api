@@ -7,7 +7,7 @@ var http = require("http")
 var port = process.env.PORT
 
 
-app.get('/', function (req, res) {
+app.get(url, function (req, res) {
   res.send(req.url)
 })
 
