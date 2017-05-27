@@ -8,7 +8,7 @@ var port = process.env.PORT
 
 
 app.get('/', function (req, res) {
-  res.send(url)
+  res.send(req.url)
 })
 
 app.listen(port, function () {
