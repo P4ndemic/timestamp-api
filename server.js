@@ -1,12 +1,14 @@
-const express = require('express')
-const app = express()
+var express = require('express')
+var app = express()
+var url = require("url")
+var http = require("http")
 
 // port ajusted to environment
 var port = process.env.PORT
 
 
 app.get('/', function (req, res) {
-  res.send('Hello World!')
+  res.send(req.url)
 })
 
 app.listen(port, function () {
