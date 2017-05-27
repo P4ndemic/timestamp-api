@@ -7,8 +7,8 @@ var http = require("http")
 var port = process.env.PORT
 
 
-app.get(url, function (req, res) {
-  res.send(req.url)
+app.get("/:date", function (req, res) {
+  res.send(req.params.date)
 })
 
 app.listen(port, function () {
