@@ -7,11 +7,11 @@ var moment = require("moment")
 // port ajusted to environment
 var port = process.env.PORT
 
-app.get("/", function(req, res) {
+app.all("/", function(req, res) {
   res.sendFile(path.join(__dirname, "/index.html"))
 })
 
-app.get("/:date", function (req, res) {
+app.all("/:date", function (req, res) {
   var date = req.params["date"]
   var unix = null
   var natural = null
