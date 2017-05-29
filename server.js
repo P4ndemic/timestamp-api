@@ -1,7 +1,6 @@
 var express = require('express')
 var app = express()
 var url = require("url")
-var http = require("http")
 var path = require("path")
 var moment = require("moment")
 
@@ -14,7 +13,20 @@ app.get("/", function(req, res) {
 
 app.get("/:date", function (req, res) {
   var date = req.params.date
-  res.send(moment(date).format("MMMM DD YYYY"))
+  var unix = null
+  var natural = null
+  var regex = /^[0-9]*$/g
+  if(regex.test(date)) {
+    unix = date
+    natural = moment.unix(date).format("MMMM DD YYYY")
+  } else if (moment(date, "MMMM DD YYYY").isValid()) {
+    natural = moment(date).format("MMMM DD YYYY")
+    unix = moment(date).format("X")
+  }
+  res.send(JSON.stringyfy({
+    "unix": unix,
+    "natural": natural
+  }))
 })
 
 app.listen(port, function () {
