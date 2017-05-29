@@ -6,11 +6,11 @@ var moment = require("moment");
 // port ajusted to environment
 var port = process.env.PORT;
 
-app.all("/", function(req, res) {
+app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "/index.html"));
 });
 
-app.all("/:date", function (req, res) {
+app.get("/:date", function (req, res) {
   var date = req.params["date"];
   var unix = null;
   var natural = null;
@@ -25,7 +25,7 @@ app.all("/:date", function (req, res) {
     unix = null;
     natural = null;
   }
-  res.send(JSON.stringyfy({
+  res.send(JSON.stringify({
     "unix": unix,
     "natural": natural
   }));
