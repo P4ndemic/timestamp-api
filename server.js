@@ -20,8 +20,11 @@ app.get("/:date", function (req, res) {
     unix = date
     natural = moment.unix(date).format("MMMM DD YYYY")
   } else if (moment(date, "MMMM DD YYYY").isValid()) {
-    natural = moment(date).format("MMMM DD YYYY")
     unix = moment(date).format("X")
+    natural = moment(date).format("MMMM DD YYYY")
+  } else {
+    unix = null
+    natural = null
   }
   res.send(JSON.stringyfy({
     "unix": unix,
