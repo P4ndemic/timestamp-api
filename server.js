@@ -26,10 +26,11 @@ app.all("/:date", function (req, res) {
     unix = null
     natural = null
   }
-  res.send(JSON.stringyfy({
-    "unix": unix,
-    "natural": natural
-  }))
+  res.send(date)
+  // res.send(JSON.stringyfy({
+  //   "unix": unix,
+  //   "natural": natural
+  // }))
 })
 
 app.listen(port, function () {
