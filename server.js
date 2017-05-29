@@ -12,7 +12,7 @@ app.get("/", function(req, res) {
 })
 
 app.get("/:date", function (req, res) {
-  var date = req.params.date
+  var date = req.params[date]
   var unix = null
   var natural = null
   var regex = /^[0-9]*$/g
